@@ -1,0 +1,4 @@
+{'name':'hera pheri','rating':8},
+    {'name':'phir hera pheri','rating':9},
+    {'name':'koi mil gaya','rating':7}
+    {'name':'welcome','rating':8}
