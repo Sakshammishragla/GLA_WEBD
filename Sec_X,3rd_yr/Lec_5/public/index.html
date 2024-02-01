@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogPage</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <li><a href="/">AddBlogs</a></li>
+            <li><a href="/getblogs">Getblogs</a></li>
+        </nav>
+    </header>
+<h1>blogpage</h1>
+<form action="/addblogs" method="post">
+    <label for="author">Author:-</label>
+    <input type="text" name="author" id="author"><br>
+
+    <label for="cateogry">cateogry:-</label>
+    <input type="text" name="cateogry" id="cateogry"><br>
+
+    <label for="blog">Blog:-</label>
+    <textarea name="blog" id="blog" cols="30" rows="10"></textarea>
+
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>

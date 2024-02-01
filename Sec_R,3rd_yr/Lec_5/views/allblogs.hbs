@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Blogs</title>
+</head>
+
+<body>
+    <h1>All Blogs</h1>
+    <ul>
+        {{#each blogarr}}
+        <li>{{this.author}}</li>
+        <li>{{this.category}}</li>
+        <li>{{this.blog}}</li>
+        {{/each}}
+    </ul>
+</body>
+
+</html>
