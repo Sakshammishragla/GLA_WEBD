@@ -10,11 +10,6 @@ app.use(express.urlencoded({ extended: true }))
 app.set('view engine', 'hbs')
 
 
-
-app.get('/getblogPage',(req,res)=>{
-    res.render('blogpage')
-})
-
 app.post("/addblog", (req, res) => {
     const { author, category, blog } = req.body
 
@@ -31,7 +26,7 @@ app.post("/addblog", (req, res) => {
 
 app.get("/getblogs", (req, res) => {
      res.render('allblogs',{
-        blogarr
+       
      })
 })
 

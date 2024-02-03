@@ -4,17 +4,20 @@ const path=require("path")
 const PORT=4444;
 
 
-console.log(app);
+// console.log(app);
 
 // app.use(express.static(path.join(__dirname,'public')))
 // app.use(express.urlencoded({extended:true}))
 
-// app.use("/",(req,res,next)=>{
-//     console.log("yeh hamra middleware hai!");
-//     // console.log(req);
-//     // res.send("Yeh hamara response hai")
-//     next()
-// })
+app.use("/",(req,res,next)=>{
+    console.log("yeh hamra middleware hai!");
+    // res.send("yeh hamar response!")
+    next()
+})
+
+app.get("/",(req,res)=>{
+    res.send("Response through get method!")
+})
 
 // // app.get("/",(req,res)=>{
 // //     res.sendFile(path.join(__dirname,'index.html'))
