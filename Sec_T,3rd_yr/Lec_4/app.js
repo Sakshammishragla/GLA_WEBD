@@ -21,8 +21,9 @@ app.get("/",(req,res)=>{
 // app.get("/path/:name/:class",(req,res)=>{
 //     // res.send("abishek")
 //     console.log(req.params);
-//     res.send(req.params)
+//     res.send(req.params.name)
 // })
+
 
 app.get("/path",(req,res)=>{
     console.log(req.query);
