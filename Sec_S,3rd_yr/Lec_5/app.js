@@ -7,7 +7,9 @@ const { v4: uuidv4 } = require('uuid');
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
+
 app.set('view engine', 'hbs');
+
 hbs.registerPartials(__dirname + '/views/partials');
 
 let blogs=[]
@@ -26,6 +28,8 @@ app.post("/addblog",(req,res)=>{
     // res.send(blogs)
     res.redirect('/getblog')
 })
+
+blogs.map((item)=>)
 
 app.get("/getblog",(req,res)=>{
     res.render("blogpage",{

@@ -2,14 +2,17 @@ const express=require("express")
 const app=express()
 const path=require("path")
 const PORT=4444;
+const hbs = require('hbs');
+
 app.use(express.static(path.join(__dirname,'public')))
 app.use(express.urlencoded({extended:true}))
 app.set('view engine', 'hbs');
-
-let namearr=["saksham","abhishek","suyash"]
+hbs.registerPartials(__dirname + '/views/partials');
+// let namearr=["saksham","abhishek","suyash"]
+let blogs=[]
 
 app.use("/",(req,res,next)=>{
-    console.log("yeh hamra middleware hai!");
+    // console.log("yeh hamra middleware hai!");
     // res.send("yeh hamar response!")
     next()
 })
@@ -20,18 +23,38 @@ app.get("/",(req,res)=>{
 
 // app.get("/random",(req,res)=>{
 //     res.render("random",{
-//         firstName:"Saksham",
-//         LastName:"Mishra"
+//         firstname:"saksham",
+//         lastname:"mishra"
 //     })
 // })
 
 
+
 app.get("/random2",(req,res)=>{
-    res.render("array",{
-        namearr
+    res.render("array")
+})
+
+app.get("/getblogs",(req,res)=>{
+    res.render("blogpage",{
+        blogs:blogs
     })
 })
 
+
+app.post("/addblog",(req,res)=>{
+    console.log(req.body);
+    const {name,Class,blog}=req.body
+
+    const obj={
+        name:name,
+        Class:Class,
+        blog:blog
+    }
+   
+    blogs.push(obj)
+    // res.send(blogs)
+   res.redirect("/getblogs")
+})
 
 
 app.listen(PORT,()=>{

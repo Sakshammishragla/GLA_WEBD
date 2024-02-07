@@ -12,11 +12,15 @@ app.use("/", (req, res,next) => {
     next()
 })
 
-// app.get("/path/:name/:class",(req,res)=>{
-//     // res.send("abhishek")
-//     console.log(req.params);
-//     res.send(req.params)
+// app.get("/path/abhishek",(req,res)=>{
+//     res.send("abhishek")
 // })
+
+app.get("/path/:name/:class",(req,res)=>{
+    // res.send("abhishek")
+    console.log(req.params);
+    res.send(req.params)
+})
 
 app.get("/path2",(req,res)=>{
     console.log(req.query);

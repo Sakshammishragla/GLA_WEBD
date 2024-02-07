@@ -34,6 +34,26 @@ app.get("/delete/:blogId",(req,res)=>{
     res.redirect("/getblogs")
 })
 
+app.get("/update/:blogId",(req,res)=>{
+    console.log(req.params);
+    const updateblog=blogs.filter((item)=>item.blogId==req.params.blogId)
+    console.log(updateblog);
+    res.render("updateblog",{
+        updateblog:updateblog[0]
+    })
+})
+
+app.post("/updateblog",(req,res)=>{
+    const {name,Class,blog,blogId}=req.body
+    const newObj={
+        name:name,
+        Class:Class,
+        blog:blog,
+        blogId
+    }
+})
+
+
 app.listen(PORT,()=>{
     console.log("http://localhost:"+PORT);
 })
