@@ -43,14 +43,25 @@ app.get("/update/:blogId",(req,res)=>{
     })
 })
 
+
+
 app.post("/updateblog",(req,res)=>{
     const {name,Class,blog,blogId}=req.body
     const newObj={
-        name:name,
-        Class:Class,
-        blog:blog,
+        name,
+        Class,
+        blog,
         blogId
     }
+ 
+    blogs=blogs.map((item)=>{
+        if(item.blogId==blogId){
+            return newObj
+        }
+        return item
+    })
+   
+    res.redirect("/getblogs")
 })
 
 
