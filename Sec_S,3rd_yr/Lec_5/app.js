@@ -29,7 +29,7 @@ app.post("/addblog",(req,res)=>{
     res.redirect('/getblog')
 })
 
-blogs.map((item)=>)
+
 
 app.get("/getblog",(req,res)=>{
     res.render("blogpage",{
@@ -41,6 +41,14 @@ app.get("/delete/:blogId",(req,res)=>{
     // console.log(req.params);
     blogs=blogs.filter((item)=>item.blogId!=req.params.blogId)
     res.redirect("/getblog")
+})
+
+app.get("/update/:blogId",(req,res)=>{
+  const updateblog=blogs.filter((item)=>item.blogId==req.params.blogId)
+//   console.log(updateblog);
+  res.render("updateblog",{
+    updateblog:updateblog[0]
+  })
 })
 
 app.listen(PORT, () => {
