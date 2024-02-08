@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
+{{> navbar}}
 <body>
     <h1>Blogpage</h1>
     {{!-- <p>{{firstname}} {{lastname}}</p> --}}
@@ -15,6 +15,8 @@
         <li>{{this.name}}</li>
         <li>{{this.Class}}</li>
         <li>{{this.blog}}</li>
+        <button><a href="/delete/{{this.blogId}}">Delete</a></button>
+        <button><a href="/update/{{this.blogId}}">Update</a></button>
     </ul>
     {{/each}}
 </body>
