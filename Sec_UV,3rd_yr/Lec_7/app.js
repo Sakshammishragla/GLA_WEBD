@@ -5,16 +5,7 @@ const PORT=4444;
 const hbs = require('hbs');
 const { v4: uuidv4 } = require('uuid');
 const mongoose = require('mongoose');
-const { Schema } = mongoose;
-
-const blogSchema=new Schema({
-    name:String,
-    Class:String,
-    blog:String,
-    blogId:String
-})
-
-const Blog = mongoose.model('Blog', blogSchema);
+const Blog=require("./model/Blog")
 
 app.use(express.static(path.join(__dirname,'public')))
 app.use(express.urlencoded({extended:true}))
