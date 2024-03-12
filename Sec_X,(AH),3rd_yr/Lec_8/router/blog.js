@@ -1,7 +1,7 @@
 const express=require("express")
-const Blog=require("../model/Blog")
-const { v4: uuidv4 } = require('uuid');
 const router=express.Router()
+// const Blog=require("../model/Blog")
+// const { v4: uuidv4 } = require('uuid');
 
 router.get("/getblogs",async(req,res)=>{
     let blogs=await Blog.find()
