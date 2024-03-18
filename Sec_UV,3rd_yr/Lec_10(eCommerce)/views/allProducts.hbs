@@ -1,0 +1,14 @@
+{{>navbar}}
+<div>
+{{#each products}}
+    <div class="card" style="width: 18rem;">
+        <img src="{{this.img}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{this.name}}</h5>
+            <h5 class="card-title">{{this.price}}</h5>
+            <p class="card-text">{{this.desc}}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+{{/each}}
+</div>
