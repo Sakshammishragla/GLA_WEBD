@@ -4,7 +4,6 @@ const path = require("path")
 const PORT = 4444;
 const hbs = require("hbs")
 
-let blogs = []
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
 app.set('view engine', 'hbs')
