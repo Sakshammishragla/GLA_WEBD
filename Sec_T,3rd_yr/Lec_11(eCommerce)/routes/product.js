@@ -11,7 +11,7 @@ router.get("/products",async (req, res) => {
 // route for getting single product
 router.get("/products/:id",async(req,res)=>{
     let id=req.params.id
-    let product=await Product.findById(id).populate('reviews')
+    let product=await Product.findById(id)
     console.log(product);
     res.render("productPage",{product})
 })

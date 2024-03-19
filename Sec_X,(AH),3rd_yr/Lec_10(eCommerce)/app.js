@@ -3,6 +3,7 @@ const app = express()
 const path = require('path')
 const PORT = 4444
 const hbs=require("hbs")
+const mongoose=require("mongoose")
 
 app.set('view engine', 'hbs')
 hbs.registerPartials(__dirname + '/views/partials', function (err) {})

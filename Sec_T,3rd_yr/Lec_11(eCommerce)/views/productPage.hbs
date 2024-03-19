@@ -12,4 +12,17 @@
         </div>
     </div>
 
+    <div>
+        <form action="/product/{{product._id}}/addreviews">
+            <h1>Add Review</h1>
+            <label for="rating">Rating:-</label>
+            <input type="range" min="0" max="5" id="rating" name="rating"><br>
+
+            <label for="comment">comment:-</label>
+            <input type="text" id="comment" name="comment">
+
+            <button class="btn btn-primary">Submit</button>
+        </form>
+    </div> 
+
 </section>
