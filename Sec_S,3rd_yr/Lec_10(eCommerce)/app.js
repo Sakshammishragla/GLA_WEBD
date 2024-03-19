@@ -6,10 +6,12 @@ const hbs = require("hbs")
 const mongoose=require("mongoose")
 
 
+app.use(express.static(path.join(__dirname,'public')))
 app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
+
 app.use("/", require("./routes/product"))
-app.use(express.static(path.join(__dirname,'public')))
+app.use("/",require("./routes/review"))
 
 mongoose.connect('mongodb://127.0.0.1:27017/eCommerce_secS')
     .then(() => {
