@@ -1,5 +1,5 @@
 {{>navbar}}
-<div>
+<div class="d-flex justify-content-around mt-4">
     <div class="card" style="width: 18rem;">
         <img src="{{product.img}}" class="card-img-top" alt="...">
         <div class="card-body">
@@ -9,4 +9,28 @@
             {{!-- <a href="#" class="btn btn-primary">Go somewhere</a> --}}
         </div>
     </div>
+
+    <div>
+        <form action="/product/{{product._id}}/addreview" method="get">
+            <h1>Add Review</h1>
+            <label for="rating">Rating:-</label>
+            <input type="range" min="0" max="5" name="rating"><br>
+
+            <label for="comment">comment</label>
+            <input type="text" name="comment">
+
+            <button class="btn btn-primary">Submit</button>
+        </form>
+
+        <div>
+            {{#each product.reviews}}
+            <div class="card mt-2">
+                <h1 class="card-header">{{this.rating}}</h1>
+                <p class="card-body">{{this.comment}}</p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+
 </div>
