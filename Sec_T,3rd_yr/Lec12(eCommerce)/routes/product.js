@@ -1,5 +1,6 @@
 const express = require("express")
 const Product = require("../model/Product")
+const { validateProduct } = require("../middleware/validate")
 const router = express.Router()
 
 router.get("/products", async (req, res) => {
@@ -20,7 +21,7 @@ router.get("/addproduct", (req, res) => {
    res.render("newProduct")
 })
 
-router.post("/product/new", async (req, res) => {
+router.post("/product/new",validateProduct, async (req, res) => {
    const { name, price, img, desc } = req.body
    await Product.create({ name, price, img, desc })
    res.redirect("/products")
