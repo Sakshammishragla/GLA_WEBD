@@ -17,7 +17,8 @@ const validateReview=(req,res,next)=>{
         const msg=error.details.map((err)=>err.message).join(", ")
         return res.render("error",{err:msg})
     }
-}
+    next()
+}  
 
 
 module.exports={validateProduct,validateReview}
