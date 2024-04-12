@@ -1,0 +1,72 @@
+{{>navbar}}
+
+<div>
+    <form class="needs-validation" action="/product/new" method="post" novalidate>
+        <div>
+            <label for="name">name:-</label>
+            <input type="text" name="name" id="name" required><br>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please give product name
+            </div>
+        </div>
+
+
+        <div>
+            <label for="price">Price:-</label>
+            <input type="number" name="price" id="price" required> <br>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please give product price
+            </div>
+        </div>
+
+        <div>
+            <label for="img">Image:-</label>
+            <input type="text" name="img" id="img" required><br>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please give product Image
+            </div>
+        </div>
+        <div>
+            <label for="desc">Description</label>
+            <input type="text" name="desc" id="desc" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please give product Description
+            </div>
+        </div>
+
+        <button>Submit</button>
+    </form>
+
+    {{!-- <script>
+        (() => {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+    </script> --}}
+</div>
