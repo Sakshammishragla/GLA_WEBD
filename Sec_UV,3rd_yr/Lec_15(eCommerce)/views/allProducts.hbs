@@ -1,6 +1,10 @@
 {{>navbar}}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{success}}</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
 <div class="d-flex flex-wrap justify-content-center gap-4 mt-4">
-{{#each products}}
+    {{#each products}}
     <div class="card" style="width: 18rem;">
         <img src="{{this.img}}" class="card-img-top" style="height: 17rem;" alt="...">
         <div class="card-body">
@@ -10,5 +14,5 @@
             <a href="/product/{{this._id}}" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>
-{{/each}}
+    {{/each}}
 </div>
