@@ -10,12 +10,17 @@ const passport=require("passport")
 const User = require('./model/User')
 
 
+app.use(express.urlencoded({ extended: true }))
+app.set('view engine', 'hbs')
+hbs.registerPartials(__dirname + '/views/partials', function (err) { })
+app.use(express.static(path.join(__dirname, "public")))
+app.use(flash());
+
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
 }))
-app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -25,15 +30,12 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
+    res.locals.currentUser=req.user
     res.locals.success = req.flash('success')
     res.locals.error = req.flash('error')
     next()
 })
 
-app.use(express.urlencoded({ extended: true }))
-app.set('view engine', 'hbs')
-hbs.registerPartials(__dirname + '/views/partials', function (err) { })
-app.use(express.static(path.join(__dirname, "public")))
 app.use("/", require("./routes/product"))
 app.use("/", require("./routes/review"))
 app.use("/",require("./routes/auth"))
