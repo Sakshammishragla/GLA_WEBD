@@ -1,5 +1,8 @@
 {{>navbar}}
-
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{success}}</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
 <div class="d-flex flex-wrap justify-content-center gap-4 mt-4">
     {{#each products}}
     <div class="card" style="width: 18rem;">

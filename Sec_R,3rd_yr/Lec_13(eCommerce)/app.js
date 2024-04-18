@@ -7,6 +7,7 @@ const mongoose = require("mongoose")
 const session = require("express-session")
 const passport = require("passport")
 const User=require("./model/User")
+const flash =require("connect-flash")
 
 app.use(session({
     secret: 'kshcahvcsacvvhsacsahc',
@@ -14,12 +15,21 @@ app.use(session({
     saveUninitialized: true,
 }))
 
+app.use(flash());
+
 app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+app.use((req,res,next)=>{
+    res.locals.currentUser=req.user
+    res.locals.success=req.flash("success")
+    res.locals.error=req.flash("error")
+    next()
+})
 
 app.set('view engine', 'hbs');
 app.use(express.urlencoded({ extended: true }))
