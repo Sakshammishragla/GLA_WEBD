@@ -11,7 +11,7 @@ router.post("/signup", async (req, res) => {
     const { username, password, email } = req.body
     let newuser = new User({ username, password, email })
     let user = await User.register(newuser, password)
-    res.send(user)
+    res.redirect("/login")
 })
 
 router.get("/login",(req,res)=>{
