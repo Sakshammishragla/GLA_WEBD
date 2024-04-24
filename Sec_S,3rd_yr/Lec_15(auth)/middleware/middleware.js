@@ -10,7 +10,6 @@ const isUserLoggedIn = (req, res, next) => {
 }
 
 const isSeller = (req, res, next) => {
-
     if (req.user.role == "seller") {
         next()
     }
