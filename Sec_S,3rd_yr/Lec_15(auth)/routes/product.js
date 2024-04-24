@@ -2,6 +2,7 @@ const express = require("express")
 const Product = require("../model/Product")
 const { validateProduct } = require("../middleware/validate")
 const router = express.Router()
+const {isUserLoggedIn, isSeller}=require("../middleware/middleware")
 
 router.get("/products", async (req, res) => {
    let products = await Product.find()
@@ -15,7 +16,7 @@ router.get("/product/:id", async (req, res) => {
    res.render("productPage", { product })
 })
 
-router.get("/addproduct", (req, res) => {
+router.get("/addproduct",isUserLoggedIn,isSeller, (req, res) => {
    res.render("addProduct")
 })
 

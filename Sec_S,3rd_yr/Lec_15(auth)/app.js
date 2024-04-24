@@ -17,19 +17,18 @@ app.use(session({
 
 app.use(flash());
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 app.use((req, res, next) => {
     res.locals.success = req.flash('success')
     res.locals.error = req.flash("error")
     next()
 })
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-passport.use(User.createStrategy());
-
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'public')))

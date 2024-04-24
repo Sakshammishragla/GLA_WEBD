@@ -8,10 +8,11 @@ router.get("/signup", (req, res) => {
 })
 
 router.post("/signup",async (req, res) => {
-    const { username, password, email } = req.body
-    let newUser = new User({ username, password, email })
+    const { username, password, email,role } = req.body
+    let newUser = new User({ username, password, email,role })
    let user=await User.register(newUser, password)
    res.send(user)
+  //  res.redirect("/login")
 })
 
 router.get("/login",(req,res)=>{
