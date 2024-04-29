@@ -7,6 +7,7 @@
     {{#each products}}
     <div class="card" style="width: 18rem;">
         <img src="{{this.img}}" class="card-img-top" style="height: 17rem;" alt="...">
+        <span class="mx-auto mt-2 like-btn" product-id="{{this._id}}"><i class="fa-regular fa-heart"></i></span>
         <div class="card-body">
             <h5 class="card-title">{{this.name}}</h5>
             <h5 class="card-title">{{this.price}}</h5>
@@ -16,3 +17,5 @@
     </div>
     {{/each}}
 </div>
+
+<script src="js/script.js"></script>

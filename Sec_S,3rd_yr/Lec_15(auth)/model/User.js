@@ -1,3 +1,4 @@
+const { types } = require("joi");
 const mongoose =require("mongoose")
 const {Schema}=mongoose
 const passportLocalMongoose = require('passport-local-mongoose');
@@ -12,7 +13,13 @@ const userSchema=new Schema({
     role:{
         type:String,
         default:"buyer"
-    }
+    },
+    wishlist:[
+        {
+            type:Schema.Types.ObjectId,
+            ref:'Product'
+        }
+    ]
 })
 
 userSchema.plugin(passportLocalMongoose)

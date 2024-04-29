@@ -39,6 +39,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 app.use("/", require("./routes/product"))
 app.use("/", require("./routes/review"))
 app.use("/",require("./routes/auth"))
+app.use("/",require("./routes/api"))
 
 mongoose.connect('mongodb://127.0.0.1:27017/eCommerce_secS')
     .then(() => {
