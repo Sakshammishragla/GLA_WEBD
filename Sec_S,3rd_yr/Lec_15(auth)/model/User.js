@@ -1,27 +1,40 @@
 const { types } = require("joi");
-const mongoose =require("mongoose")
-const {Schema}=mongoose
+const mongoose = require("mongoose")
+const { Schema } = mongoose
 const passportLocalMongoose = require('passport-local-mongoose');
 
-const userSchema=new Schema({
+const userSchema = new Schema({
     // username - passport local mongooose 
     // password - passport local mongoose
-    email:{
-        type:String,
-        required:true
+    email: {
+        type: String,
+        required: true
     },
-    role:{
-        type:String,
-        default:"buyer"
+    role: {
+        type: String,
+        default: "buyer"
     },
-    wishlist:[
+    wishlist: [
         {
-            type:Schema.Types.ObjectId,
-            ref:'Product'
+            type: Schema.Types.ObjectId,
+            ref: 'Product'
+        }
+    ],
+    cart: [
+        {  
+            _id:(false),
+            product: {
+             type:Schema.Types.ObjectId,
+             ref:"Product"
+            },
+            count:{
+              type:Number,
+              default:1
+            }
         }
     ]
 })
 
 userSchema.plugin(passportLocalMongoose)
-const User =mongoose.model("User",userSchema)
-module.exports=User
+const User = mongoose.model("User", userSchema)
+module.exports = User

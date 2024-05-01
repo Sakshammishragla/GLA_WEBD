@@ -8,7 +8,9 @@
             <h5 class="card-title">{{product.name}}</h5>
             <h5 class="card-title">{{product.price}}</h5>
             <p class="card-text">{{product.desc}}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <form action="/product/cart/{{product._id}}" method="post">
+                <button>Add to cart</button>
+            </form>
         </div>
     </div>
 
