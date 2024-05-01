@@ -37,7 +37,7 @@ app.use("/", require("./routes/product"))
 app.use("/", require("./routes/review"))
 app.use("/",require("./routes/auth"))
 app.use("/",require("./routes/api"))
-
+app.use("/",require("./routes/cart"))
 
 mongoose.connect('mongodb://127.0.0.1:27017/eCommerce_secR')
     .then(async () => {

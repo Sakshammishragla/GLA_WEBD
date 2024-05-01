@@ -13,7 +13,6 @@ router.post("/products/:productId/like",async(req,res)=>{
       await  User.findByIdAndUpdate(req.user._id,{$addToSet:{wishlist:productId}})
     }
     res.status(201).send("OK")
-    console.log(user.wishlist);
 })
 
 module.exports=router
