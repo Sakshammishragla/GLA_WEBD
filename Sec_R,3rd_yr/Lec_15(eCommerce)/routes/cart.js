@@ -1,5 +1,14 @@
 const express = require("express")
+const User = require("../model/User")
 const router = express.Router()
+
+
+router.get("/products/cart",async(req,res)=>{
+    let userId=req.user._id
+   let user=await User.findById(userId).populate('cart.product')
+   console.log(user.cart);
+   res.send("OK")
+})
 
 router.post("/product/cart/:productId", async(req, res) => {
     let { productId } = req.params
@@ -14,5 +23,7 @@ router.post("/product/cart/:productId", async(req, res) => {
    await user.save()
    res.send("Product added successfully!")
 })
+
+
 
 module.exports = router

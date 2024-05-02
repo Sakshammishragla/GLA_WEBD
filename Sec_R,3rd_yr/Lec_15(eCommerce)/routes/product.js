@@ -1,6 +1,7 @@
 const express=require("express")
 const Product = require("../model/Product")
 const { validateProduct } = require("../middleware/validate")
+const { isUserLoggedIn } = require("../middleware/middleware")
 const router=express.Router()
 
 
@@ -9,7 +10,7 @@ router.get("/products",async(req,res)=>{
     res.render("allProducts",{products})
 })
 
-router.get("/product/:id",async(req,res)=>{
+router.get("/product/:id",isUserLoggedIn,async(req,res)=>{
     let id=req.params.id
    let product=await Product.findById(id).populate("reviews")
    console.log(product);
