@@ -8,11 +8,13 @@ const session = require('express-session')
 const flash = require('connect-flash');
 const passport =require("passport")
 const User = require('./model/User')
+const MongoStore = require('connect-mongo');
 
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    store: MongoStore.create({ mongoUrl: 'mongodb://127.0.0.1:27017/eCommerce_secUV' })
 }))
 
 
